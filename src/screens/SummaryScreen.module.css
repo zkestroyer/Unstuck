@@ -44,15 +44,223 @@
   margin-top: var(--space-xs);
 }
 
-.historySection {
+/* Dashboard Tabs */
+.dashTabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--space-sm);
+}
+
+.dashTab {
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.dashTab:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.dashTabActive {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  border-color: var(--color-primary);
+}
+
+.tabContent {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-lg);
+  animation: fadeIn var(--duration-fast) var(--ease-out);
+}
+
+/* Achievements Card */
+.achievementsCard {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
 }
 
 .sectionTitle {
   font-size: var(--font-size-heading-md);
   color: var(--color-text-primary);
+}
+
+.sectionSub {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.achievementsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.achievementItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-primary-light);
+  border: 1px solid var(--color-primary-border);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+}
+
+.achievementCheck {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.1rem;
+}
+
+.achievementText {
+  font-size: var(--font-size-body-md);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.emptyNotice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background-color: var(--color-page-bg);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-body-sm);
+}
+
+/* Stats Row */
+.summaryStatsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+@media (max-width: 600px) {
+  .summaryStatsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statBox {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNumber {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.statLabel {
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Categories Summary Grid */
+.categoriesSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.catSummaryCard {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.catSummaryTop {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.catSummaryIcon {
+  font-size: 1.8rem;
+}
+
+.catSummaryTitle {
+  font-size: var(--font-size-heading-sm);
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.statusBadge {
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.status_started {
+  background-color: var(--color-surface-warm);
+  color: var(--color-text-muted);
+}
+
+.status_improving {
+  background-color: var(--color-warning-bg);
+  color: var(--color-text-on-warning);
+}
+
+.status_comfortable {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.catSummaryDesc {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.catSummaryMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-label);
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-xs);
+  margin-top: auto;
+}
+
+/* Activity Log */
+.historySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
 .historyList {
@@ -61,7 +269,6 @@
   gap: var(--space-sm);
 }
 
-/* Warm, reassuring empty state */
 .emptyState {
   padding: var(--space-xl);
   background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
@@ -102,93 +309,85 @@
 .emptyDesc {
   font-size: var(--font-size-body-md);
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: var(--line-height-body);
 }
 
-/* Suggested Next Card */
+/* Next Step Card */
 .nextStepCard {
   background-color: var(--color-surface);
   border: 2px solid var(--color-primary-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  box-shadow: var(--shadow-md);
-  transition: all var(--duration-moderate) var(--ease-out);
-}
-
-.nextStepCard:hover {
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
 }
 
 .nextCardBannerWrap {
   width: 100%;
   height: 120px;
+  background-color: var(--color-page-bg);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: linear-gradient(135deg, #FAF6F0 0%, #F1EAE0 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-xs);
 }
 
 .nextCardBanner {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .nextStepHeader {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .nextStepCategory {
   font-size: var(--font-size-label);
   font-weight: var(--font-weight-bold);
-  color: var(--color-accent);
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .nextTaskName {
   font-size: var(--font-size-heading-md);
-  color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
-  margin-top: 4px;
+  color: var(--color-text-primary);
+  margin-top: 2px;
 }
 
 .nextReasonText {
   font-size: var(--font-size-body-md);
-  color: var(--color-text-primary);
+  color: var(--color-text-secondary);
   line-height: var(--line-height-body);
+  background-color: var(--color-primary-light);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+html[lang="ur"] .nextReasonText {
+  border-left: none;
+  border-right: 4px solid var(--color-primary);
 }
 
 .nextActions {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--space-sm);
   align-items: center;
-  gap: var(--space-md);
-  padding-top: var(--space-md);
-  border-top: 1.5px solid var(--color-border);
+  margin-top: var(--space-xs);
 }
 
 .tryNextBtn {
-  min-width: 240px;
-}
-
-@media (max-width: 640px) {
-  .emptyState {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nextActions {
-    flex-direction: column;
-    align-items: stretch;
-  }
+  font-size: var(--font-size-button-text);
+  font-weight: var(--font-weight-bold);
+  min-width: 220px;
 }

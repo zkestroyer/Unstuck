@@ -1,14 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120">
-  <rect width="320" height="120" rx="12" fill="#FEF3C7"/>
-  <!-- Gallery folder -->
-  <rect x="50" y="25" width="80" height="70" rx="8" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
-  <rect x="60" y="40" width="60" height="45" rx="6" fill="#FDE68A"/>
-  <!-- Arrow to trash -->
-  <path d="M145 60 L185 60" stroke="#D97706" stroke-width="3" stroke-dasharray="4 4"/>
-  <polygon points="183,55 195,60 183,65" fill="#D97706"/>
-  <!-- Trash bin with safe badge -->
-  <rect x="205" y="30" width="65" height="65" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
-  <text x="237" y="58" font-size="24" text-anchor="middle">🗑️</text>
-  <rect x="210" y="70" width="55" height="18" rx="6" fill="#DCFCE7"/>
-  <text x="237" y="83" font-family="system-ui" font-size="10" font-weight="700" fill="#15803D" text-anchor="middle">Safe 30 Days</text>
+  <rect width="320" height="120" rx="12" fill="#FFF8E7"/>
+  <path d="M0 70 Q90 50 180 75 T320 60 L320 120 L0 120 Z" fill="#FEEAA3" opacity="0.3"/>
+
+  <!-- ORIGINAL GOOGLE PHOTOS APP ICON (4-Color Pinwheel on White Squircle) -->
+  <g transform="translate(24, 20)">
+    <rect width="76" height="76" rx="18" fill="#FFFFFF" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.12))"/>
+    <!-- 4-Color Pinwheel Petals -->
+    <g transform="translate(38, 38)">
+      <!-- Red Top Petal -->
+      <path d="M0 0 L0 -18 C-7.5 -18 -13 -12.5 -13 -5 C-13 0 0 0 0 0 Z" fill="#EA4335"/>
+      <!-- Yellow Right Petal -->
+      <path d="M0 0 L18 0 C18 -7.5 12.5 -13 5 -13 C0 -13 0 0 0 0 Z" fill="#FBBC04"/>
+      <!-- Green Bottom Petal -->
+      <path d="M0 0 L0 18 C7.5 18 13 12.5 13 5 C13 0 0 0 0 0 Z" fill="#34A853"/>
+      <!-- Blue Left Petal -->
+      <path d="M0 0 L-18 0 C-18 7.5 -12.5 13 -5 13 C0 13 0 0 0 0 Z" fill="#4285F4"/>
+    </g>
+    <text x="38" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#B45309" text-anchor="middle">Google Photos</text>
+  </g>
+
+  <!-- Photo File & Safe Trash Bin Flow -->
+  <g transform="translate(130, 20)">
+    <!-- Photo Card (Deleted) -->
+    <g transform="translate(0, 6)">
+      <rect width="52" height="60" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.06))"/>
+      <rect x="6" y="6" width="40" height="34" rx="4" fill="#F1F5F9"/>
+      <circle cx="16" cy="16" r="3" fill="#FBBC04"/>
+      <polygon points="8,38 20,24 28,32 38,20 44,38" fill="#34A853"/>
+      <text x="26" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="600" fill="#64748B" text-anchor="middle">My Photo</text>
+    </g>
+
+    <!-- Arrow with Safe 30 Days indicator -->
+    <g transform="translate(58, 26)">
+      <path d="M0 10 L30 10" fill="none" stroke="#D97706" stroke-width="2.5" stroke-dasharray="4 3"/>
+      <polygon points="28,5 38,10 28,15" fill="#D97706"/>
+      <text x="18" y="2" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#D97706" text-anchor="middle">Delete</text>
+    </g>
+
+    <!-- Authentic Mobile Trash Can & Restore Safety Vault -->
+    <g transform="translate(104, 0)">
+      <rect width="66" height="74" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="2" filter="drop-shadow(0 4px 8px rgba(5,150,105,0.15))"/>
+      
+      <!-- Authentic Trash Can SVG Icon -->
+      <g transform="translate(21, 8)">
+        <!-- Trash Lid & Handle -->
+        <rect x="7" y="0" width="10" height="3" rx="1.5" fill="#DC2626"/>
+        <line x1="2" y1="4" x2="22" y2="4" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/>
+        <!-- Trash Bin Body with vertical ribs -->
+        <path d="M4 6 L6 20 C6 21.5 7.5 23 9 23 L15 23 C16.5 23 18 21.5 18 20 L20 6 Z" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+        <line x1="9" y1="9" x2="9" y2="19" stroke="#DC2626" stroke-width="1.2"/>
+        <line x1="12" y1="9" x2="12" y2="19" stroke="#DC2626" stroke-width="1.2"/>
+        <line x1="15" y1="9" x2="15" y2="19" stroke="#DC2626" stroke-width="1.2"/>
+      </g>
+
+      <!-- Restore Curved Arrow Button -->
+      <g transform="translate(12, 38)">
+        <rect width="42" height="18" rx="5" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+        <!-- Curved Restore Arrow -->
+        <path d="M10 9 C10 6 13 4 17 4 C21 4 24 7 24 10 L24 11 M22 9 L24 11 L26 9" fill="none" stroke="#15803D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="28" y="13" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="700" fill="#15803D">Restore</text>
+      </g>
+
+      <!-- 30-Day Safe Hold Badge -->
+      <rect x="8" y="58" width="50" height="12" rx="3" fill="#E0F2FE"/>
+      <text x="33" y="67" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7.5" font-weight="700" fill="#0369A1" text-anchor="middle">30 Days Safe</text>
+    </g>
+  </g>
 </svg>

@@ -109,7 +109,75 @@ button {
   border: 0;
 }
 
-/* ── Reduced Motion Preference ── */
+/* ── Accessibility Mode Modifiers ── */
+
+/* 1. Text Size Scaling */
+html[data-text-size="large"] {
+  font-size: 19px;
+}
+html[data-text-size="large"] h1 {
+  font-size: 2.4rem;
+}
+html[data-text-size="large"] h2 {
+  font-size: 2rem;
+}
+
+html[data-text-size="xlarge"] {
+  font-size: 22px;
+}
+html[data-text-size="xlarge"] h1 {
+  font-size: 2.7rem;
+}
+html[data-text-size="xlarge"] h2 {
+  font-size: 2.3rem;
+}
+
+/* 2. High Contrast Mode */
+html[data-contrast="high"] {
+  --color-page-bg: #0C120F;
+  --color-surface: #17221C;
+  --color-surface-warm: #1F2E26;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #E0E8E3;
+  --color-text-muted: #B4C4BA;
+  --color-primary: #38A388;
+  --color-primary-hover: #48BA9D;
+  --color-primary-light: #1F362D;
+  --color-primary-border: #48BA9D;
+  --color-border: #4D6457;
+  --color-border-selected: #5DE2C0;
+  --color-warning-bg: #332608;
+  --color-warning-border: #E0A838;
+  --color-text-on-warning: #FFD980;
+  --color-focus-ring: #FFDD00;
+  --color-phone-frame: #000000;
+  --color-phone-screen-bg: #121915;
+}
+
+html[data-contrast="high"] button,
+html[data-contrast="high"] [role="button"] {
+  border-color: #FFFFFF !important;
+}
+
+/* 3. Large Buttons Mode */
+html[data-large-buttons="true"] button,
+html[data-large-buttons="true"] [role="button"] {
+  min-height: 56px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  font-size: 1.15rem !important;
+}
+
+/* 4. Reduced Motion Preference */
+html[data-reduced-motion="true"] *,
+html[data-reduced-motion="true"] *::before,
+html[data-reduced-motion="true"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -117,4 +185,16 @@ button {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* 5. Urdu RTL and Font Support */
+html[lang="ur"] {
+  direction: rtl;
+  text-align: right;
+  font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Urdu Typesetting", "Segoe UI", Arial, sans-serif;
+}
+
+html[lang="ur"] .phone-screen {
+  direction: ltr; /* Phone UI remains standard phone direction for consistency */
+  text-align: left;
 }

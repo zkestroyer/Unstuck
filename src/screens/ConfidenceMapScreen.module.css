@@ -1,0 +1,203 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.headerArea {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.backBtn {
+  align-self: flex-start;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 15px;
+  padding: 4px 8px;
+  margin-bottom: var(--space-xs);
+}
+
+.badgeWrap {
+  margin-bottom: var(--space-xs);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 14px;
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-badge);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+}
+
+.heading {
+  font-size: var(--font-size-heading-xl);
+  color: var(--color-text-primary);
+}
+
+.subheading {
+  font-size: var(--font-size-body-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.encouragementBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-primary-light);
+  border: 1.5px solid var(--color-primary-border);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--space-xs);
+}
+
+.encouragementIcon {
+  font-size: 1.2rem;
+}
+
+.audioRow {
+  margin-top: var(--space-xs);
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.categoryCard {
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.categoryCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.catIcon {
+  font-size: 2.2rem;
+  line-height: 1;
+  background-color: var(--color-page-bg);
+  padding: 8px;
+  border-radius: var(--radius-md);
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.catTitle {
+  font-size: var(--font-size-heading-md);
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-bold);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  align-self: flex-start;
+}
+
+.statusStarted {
+  background-color: var(--color-surface-warm);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.statusImproving {
+  background-color: var(--color-warning-bg);
+  color: var(--color-text-on-warning);
+  border: 1px solid var(--color-warning-border);
+}
+
+.statusComfortable {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-border);
+}
+
+.catDesc {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.metricsBox {
+  background-color: var(--color-page-bg);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metricItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-label);
+}
+
+.metricLabel {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.metricVal {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-sm);
+}
+
+.practiseBtn {
+  width: 100%;
+}
+
+.independentBtn {
+  width: 100%;
+}
