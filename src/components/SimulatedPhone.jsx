@@ -30,6 +30,9 @@ export default function SimulatedPhone({
   const [galleryTab, setGalleryTab] = useState('all'); // 'all' | 'trash'
   const [photoRestored, setPhotoRestored] = useState(false);
 
+  // Guarantee activeTaskId is always a valid interactive module (defaults to 'send-picture')
+  const activeTaskId = (taskId === 'explore-maps' || taskId === 'safe-delete') ? taskId : 'send-picture';
+
   // Sync state with step progressions
   const isMapsSearchActive = mapsSearched || currentStep >= 1;
   const isMapsSheetActive = mapsSheetOpen || currentStep >= 2;
@@ -55,7 +58,7 @@ export default function SimulatedPhone({
         {/* ══════════════════════════════════════════════════════════
             TASK A: MESSAGING (Send a Picture)
            ══════════════════════════════════════════════════════════ */}
-        {taskId === 'send-picture' && (
+        {activeTaskId === 'send-picture' && (
           <>
             {/* Contact Header */}
             <div className="phone-chat-header">
@@ -179,7 +182,7 @@ export default function SimulatedPhone({
         {/* ══════════════════════════════════════════════════════════
             TASK B: GOOGLE MAPS & LOCATION SHARING
            ══════════════════════════════════════════════════════════ */}
-        {taskId === 'explore-maps' && (
+        {activeTaskId === 'explore-maps' && (
           <div className="maps-container">
             {/* Top Search Bar */}
             <div className="maps-search-wrapper">
@@ -281,7 +284,7 @@ export default function SimulatedPhone({
         {/* ══════════════════════════════════════════════════════════
             TASK C: SAFE DELETION & RECOVERY (Photo Gallery)
            ══════════════════════════════════════════════════════════ */}
-        {taskId === 'safe-delete' && (
+        {activeTaskId === 'safe-delete' && (
           <div className="gallery-container">
             {/* Gallery Top Tabs */}
             <div className="gallery-tabs">

@@ -110,6 +110,7 @@ export default function App() {
 
   // Recommendation Handlers
   const handleStartPractice = () => {
+    setCurrentTaskId(recommendedTaskId);
     if (recommendedTaskId === 'check-message') {
       setScreen('safetyScenario');
     } else {
@@ -118,12 +119,18 @@ export default function App() {
   };
 
   const handleChooseOtherTask = () => {
-    const otherTask = currentTaskId === 'send-picture' ? 'check-message' : 'send-picture';
-    setCurrentTaskId(otherTask);
-    setRecommendedTaskId(otherTask);
+    const cycle = ['send-picture', 'explore-maps', 'safe-delete', 'check-message'];
+    const nextIdx = (cycle.indexOf(recommendedTaskId) + 1) % cycle.length;
+    const nextTask = cycle[nextIdx];
+    setCurrentTaskId(nextTask);
+    setRecommendedTaskId(nextTask);
     setRecommendationReason(
-      otherTask === 'check-message'
+      nextTask === 'check-message'
         ? 'Learn to identify unexpected verification codes and scam messages.'
+        : nextTask === 'explore-maps'
+        ? 'Learn to explore locations and share GPS safely on Maps.'
+        : nextTask === 'safe-delete'
+        ? 'Practise selecting and safely recovering deleted photos.'
         : 'Practise attaching and sending photos in a simulated chat.'
     );
   };
@@ -321,13 +328,20 @@ export default function App() {
             recommendedTaskId={recommendedTaskId}
             recommendationReason={recommendationReason}
             onTrySuggested={() => {
+              setCurrentTaskId(recommendedTaskId);
               if (recommendedTaskId === 'check-message') {
                 setScreen('safetyScenario');
               } else {
                 setScreen('practiceIntro');
               }
             }}
-            onPractiseAgain={() => setScreen('practiceIntro')}
+            onPractiseAgain={() => {
+              const safeTask = (currentTaskId === 'explore-maps' || currentTaskId === 'safe-delete' || currentTaskId === 'send-picture')
+                ? currentTaskId
+                : 'send-picture';
+              setCurrentTaskId(safeTask);
+              setScreen('practiceIntro');
+            }}
             onChangeConcerns={() => setScreen('fearMap')}
             language={language}
             onHear={handleHear}

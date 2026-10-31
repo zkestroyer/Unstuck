@@ -18,7 +18,8 @@ export default function IndependentAttemptScreen({
   onHear,
   isSpeaking = false
 }) {
-  const task = tasks[taskId] || tasks['send-picture'];
+  const activeTaskId = tasks[taskId] ? taskId : 'send-picture';
+  const task = tasks[activeTaskId];
   const steps = task.independentSteps || task.guidedSteps;
 
   const [state, dispatch] = useReducer(practiceReducer, {
@@ -223,7 +224,7 @@ export default function IndependentAttemptScreen({
         {/* Right Column: Simulated Phone */}
         <div className={styles.phonePanel}>
           <SimulatedPhone
-            taskId={taskId}
+            taskId={activeTaskId}
             currentStep={state.currentStep}
             messages={messages}
             highlightedControl={state.highlightedControl}

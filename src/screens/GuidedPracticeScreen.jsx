@@ -20,7 +20,8 @@ export default function GuidedPracticeScreen({
   onHear,
   isSpeaking = false
 }) {
-  const task = tasks[taskId] || tasks['send-picture'];
+  const activeTaskId = tasks[taskId] ? taskId : 'send-picture';
+  const task = tasks[activeTaskId];
   const steps = task.guidedSteps;
 
   const [mode, setMode] = useState(initialMode);
@@ -180,7 +181,7 @@ export default function GuidedPracticeScreen({
 
   const handleHear = () => {
     const textToSpeak = `${instruction}. ${state.feedbackMessage || ''}`;
-    onHear(textToSpeak, `task_${taskId}_${state.currentStep}`);
+    onHear(textToSpeak, `task_${activeTaskId}_${state.currentStep}`);
   };
 
   const handleStartAgain = () => {
@@ -348,7 +349,7 @@ export default function GuidedPracticeScreen({
         {/* Right Panel: Simulated Mobile Phone */}
         <div className={styles.phonePanel}>
           <SimulatedPhone
-            taskId={taskId}
+            taskId={activeTaskId}
             currentStep={state.currentStep}
             messages={messages}
             highlightedControl={state.highlightedControl}
