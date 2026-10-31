@@ -112,7 +112,7 @@ export default function IndependentAttemptScreen({
 
   const handleHear = () => {
     const textToSpeak = `${instruction}. ${state.feedbackMessage || ''}`;
-    onHear(textToSpeak);
+    onHear(textToSpeak, 'independent_prompt');
   };
 
   const handleStartAgain = () => {
@@ -223,6 +223,8 @@ export default function IndependentAttemptScreen({
         {/* Right Column: Simulated Phone */}
         <div className={styles.phonePanel}>
           <SimulatedPhone
+            taskId={taskId}
+            currentStep={state.currentStep}
             messages={messages}
             highlightedControl={state.highlightedControl}
             pictureTrayOpen={state.pictureTrayOpen || state.currentStep === 1}

@@ -1,8 +1,9 @@
-// Digital Fear Map Concerns
+// Digital Fear Map Concerns with Illustrative Vector Badges
 export const concerns = [
   {
     id: "wrong_button",
     icon: "hand-tap",
+    image: "/images/cards/card_wrong_button.svg",
     label: {
       en: "I'm afraid I'll press the wrong thing.",
       ur: "مجھے ڈر ہے کہ میں غلط بٹن دبا دوں گا۔",
@@ -19,6 +20,7 @@ export const concerns = [
   {
     id: "deleting",
     icon: "trash",
+    image: "/images/cards/card_deleting.svg",
     label: {
       en: "I worry I might delete something.",
       ur: "مجھے فکر ہے کہ میں کچھ ڈیلیٹ کر دوں۔",
@@ -29,12 +31,13 @@ export const concerns = [
       ur: "چیزیں کھونے کے خوف کے بغیر محفوظ طریقے سے منتخب کرنے کی مشق کریں۔",
       "roman-ur": "Cheezein khone ke khauf ke baghair intekhab ki mashq karein."
     },
-    mappedTaskId: "send-picture",
+    mappedTaskId: "safe-delete",
     priority: 2
   },
   {
     id: "navigation",
     icon: "compass",
+    image: "/images/cards/card_navigation.svg",
     label: {
       en: "I find it hard to find things on my phone.",
       ur: "مجھے فون پر چیزیں ڈھونڈنا مشکل لگتا ہے۔",
@@ -45,12 +48,13 @@ export const concerns = [
       ur: "مینو، تصاویر، اور پیغامات آسانی سے تلاش کرنا سیکھیں۔",
       "roman-ur": "Menus, tasveerein aur paighamaat asaani se talash karna seekhein."
     },
-    mappedTaskId: "send-picture",
+    mappedTaskId: "explore-maps",
     priority: 3
   },
   {
     id: "sending_picture",
     icon: "picture",
+    image: "/images/cards/card_sending_picture.svg",
     label: {
       en: "I want to learn to send pictures or files.",
       ur: "میں تصویریں یا فائلیں بھیجنا سیکھنا چاہتا ہوں۔",
@@ -67,6 +71,7 @@ export const concerns = [
   {
     id: "message_safety",
     icon: "shield",
+    image: "/images/cards/card_message_safety.svg",
     label: {
       en: "Some messages make me unsure.",
       ur: "کچھ پیغامات مجھے الجھن میں ڈال دیتے ہیں۔",
@@ -83,6 +88,7 @@ export const concerns = [
   {
     id: "prefers_audio",
     icon: "speaker",
+    image: "/images/cards/card_prefers_audio.svg",
     label: {
       en: "I prefer to listen instead of reading.",
       ur: "میں پڑھنے کی بجائے سننا پسند کرتا ہوں۔",
@@ -99,6 +105,7 @@ export const concerns = [
   {
     id: "language_difficulty",
     icon: "language",
+    image: "/images/cards/card_language_difficulty.svg",
     label: {
       en: "The words on my phone are difficult to understand.",
       ur: "فون پر الفاظ سمجھنا مشکل ہے۔",

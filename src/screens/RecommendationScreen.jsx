@@ -34,7 +34,21 @@ export default function RecommendationScreen({
 
   const handleHear = () => {
     const fullText = `${t.heading}: ${taskTitle}. ${t.reasonLabel} ${reasonText}. ${t.safetyReassurance}`;
-    onHear(fullText);
+    onHear(fullText, `rec_${recommendedTaskId}`);
+  };
+
+  const getModuleBanner = (taskId) => {
+    switch (taskId) {
+      case 'explore-maps':
+        return '/images/cards/module_maps.svg';
+      case 'safe-delete':
+        return '/images/cards/module_safe_delete.svg';
+      case 'check-message':
+        return '/images/cards/module_safety_scam.svg';
+      case 'send-picture':
+      default:
+        return '/images/cards/module_messaging.svg';
+    }
   };
 
   return (
@@ -66,14 +80,16 @@ export default function RecommendationScreen({
       </div>
 
       <div className={styles.recommendationCard}>
+        <div className={styles.bannerArea}>
+          <img
+            src={getModuleBanner(recommendedTaskId)}
+            alt=""
+            className={styles.bannerImage}
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
+        </div>
+
         <div className={styles.taskHero}>
-          <div className={styles.taskIconArea}>
-            {isSafetyTask ? (
-              <span className={styles.iconLarge}>🛡️</span>
-            ) : (
-              <span className={styles.iconLarge}>📷</span>
-            )}
-          </div>
           <div>
             <h2 className={styles.taskTitle}>{taskTitle}</h2>
             <p className={styles.taskDescription}>{taskDescription}</p>

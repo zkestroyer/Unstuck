@@ -82,14 +82,21 @@ export default function AppHeader({
             className={`${styles.navItem} ${currentScreen === 'welcome' || currentScreen === 'fearMap' ? styles.navActive : ''}`}
             onClick={() => onNavigate('welcome')}
           >
-            Home
+            {language === 'ur' ? 'ہوم' : 'Home'}
+          </button>
+          <button
+            type="button"
+            className={`${styles.navItem} ${currentScreen === 'library' ? styles.navActive : ''}`}
+            onClick={() => onNavigate('library')}
+          >
+            {language === 'ur' ? 'مہارتوں کا نقشہ (تمام فیچرز)' : 'Skill Map & All Features'}
           </button>
           <button
             type="button"
             className={`${styles.navItem} ${currentScreen === 'summary' ? styles.navActive : ''}`}
             onClick={() => onNavigate('summary')}
           >
-            My Practice
+            {language === 'ur' ? 'میری مشق' : 'My Practice'}
           </button>
         </div>
 

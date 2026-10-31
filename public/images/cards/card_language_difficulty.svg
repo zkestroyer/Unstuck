@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <circle cx="40" cy="40" r="38" fill="#E0F2FE" stroke="#38BDF8" stroke-width="2"/>
+  <!-- English speech bubble -->
+  <rect x="20" y="24" width="26" height="20" rx="6" fill="#0284C7"/>
+  <text x="33" y="38" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">A</text>
+  <!-- Urdu speech bubble -->
+  <rect x="36" y="36" width="26" height="20" rx="6" fill="#059669"/>
+  <text x="49" y="50" font-family="system-ui, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ا</text>
+  <!-- Connection heart -->
+  <circle cx="38" cy="34" r="5" fill="#EF4444"/>
+</svg>

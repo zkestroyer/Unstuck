@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120">
+  <rect width="320" height="120" rx="12" fill="#FEF3C7"/>
+  <!-- Gallery folder -->
+  <rect x="50" y="25" width="80" height="70" rx="8" fill="#FFFFFF" stroke="#D97706" stroke-width="2"/>
+  <rect x="60" y="40" width="60" height="45" rx="6" fill="#FDE68A"/>
+  <!-- Arrow to trash -->
+  <path d="M145 60 L185 60" stroke="#D97706" stroke-width="3" stroke-dasharray="4 4"/>
+  <polygon points="183,55 195,60 183,65" fill="#D97706"/>
+  <!-- Trash bin with safe badge -->
+  <rect x="205" y="30" width="65" height="65" rx="10" fill="#FFFFFF" stroke="#059669" stroke-width="2"/>
+  <text x="237" y="58" font-size="24" text-anchor="middle">🗑️</text>
+  <rect x="210" y="70" width="55" height="18" rx="6" fill="#DCFCE7"/>
+  <text x="237" y="83" font-family="system-ui" font-size="10" font-weight="700" fill="#15803D" text-anchor="middle">Safe 30 Days</text>
+</svg>

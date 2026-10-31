@@ -41,7 +41,7 @@ export function practiceReducer(state, action) {
       const isCompleted = nextStep >= state.totalSteps;
 
       let nextHighlight = null;
-      if (!isCompleted && state.attemptMode === "guided") {
+      if (!isCompleted && (state.attemptMode === "guided" || state.attemptMode === "demonstrate")) {
         if (nextStep === 1) nextHighlight = "picture-item";
         if (nextStep === 2) nextHighlight = "send-btn";
       }

@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './ChoiceCard.module.css';
 
-export default function ChoiceCard({ id, label, description, isSelected, onToggle, onHear, isSpeaking = false }) {
+export default function ChoiceCard({ id, label, description, isSelected, onToggle, onHear, isSpeaking = false, image }) {
+  const imageSrc = image || `/images/cards/card_${id}.svg`;
+
   return (
     <div
       role="checkbox"
@@ -22,6 +24,17 @@ export default function ChoiceCard({ id, label, description, isSelected, onToggl
             <path d="M4 10.5L8 14.5L16 6.5" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )}
+      </div>
+
+      <div className={styles.imageWrapper}>
+        <img
+          src={imageSrc}
+          alt=""
+          className={styles.cardImage}
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
+        />
       </div>
 
       <div className={styles.content}>

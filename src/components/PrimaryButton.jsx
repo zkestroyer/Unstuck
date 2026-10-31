@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PrimaryButton.module.css';
 
-export default function PrimaryButton({ children, onClick, disabled = false, className = '', type = 'button', ariaLabel }) {
+export default function PrimaryButton({ children, onClick, disabled = false, className = '', type = 'button', ariaLabel, style }) {
   return (
     <button
       type={type}
@@ -9,6 +9,7 @@ export default function PrimaryButton({ children, onClick, disabled = false, cla
       onClick={onClick}
       disabled={disabled}
       aria-label={ariaLabel}
+      style={style}
     >
       {children}
     </button>

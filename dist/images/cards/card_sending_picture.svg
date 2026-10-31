@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <circle cx="40" cy="40" r="38" fill="#F3E5F5" stroke="#BA68C8" stroke-width="2"/>
+  <!-- Photo frame -->
+  <rect x="22" y="24" width="34" height="28" rx="4" fill="#FFFFFF" stroke="#7B1FA2" stroke-width="2"/>
+  <circle cx="30" cy="32" r="3.5" fill="#FFB300"/>
+  <polygon points="24,48 34,36 42,44 48,38 54,48" fill="#4CAF50"/>
+  <!-- Paperclip attachment badge -->
+  <circle cx="56" cy="48" r="13" fill="#6A1B9A"/>
+  <path d="M53 52 L59 46 C60.5 44.5 60.5 42 59 40.5 C57.5 39 55 39 53.5 40.5 L47 47 C45 49 45 52 47 54 C49 56 52 56 54 54 L60 48" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+</svg>

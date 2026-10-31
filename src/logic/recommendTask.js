@@ -1,7 +1,24 @@
-// Deterministic, rule-based recommendation engine for UNSTUCK
+// Deterministic, rule-based recommendation engine for UNSTUCK across all curriculum modules
 export function recommendTask(selectedConcerns = [], attemptHistory = [], completedTaskIds = []) {
-  // Mapping of concerns to tasks and transparent user-facing reasons
   const CONCERN_MATRIX = [
+    {
+      concern: "navigation",
+      taskId: "explore-maps",
+      reason: {
+        en: "You find it hard to find items or places on your phone. Let's practise exploring a destination and sharing your live location on Maps safely.",
+        ur: "آپ کو فون پر چیزیں یا جگہیں تلاش کرنا مشکل لگتا ہے۔ آئیے نقشے پر مقام تلاش کرنے اور محفوظ لوکیشن شیئر کرنے کی مشق کریں۔",
+        "roman-ur": "Phone par places dhoondna asaan banane ke liye Maps aur Location ki practice karein."
+      }
+    },
+    {
+      concern: "deleting",
+      taskId: "safe-delete",
+      reason: {
+        en: "You worry about accidentally deleting things. Learn hands-on how Recently Deleted trash safely holds items so you can never lose anything.",
+        ur: "آپ کو چیزیں ڈیلیٹ ہو جانے کی فکر رہتی ہے۔ سیکھیں کہ کوڑے دان فائلوں کو کیسے محفوظ رکھتا ہے اور آپ جب چاہیں واپس لا سکتے ہیں۔",
+        "roman-ur": "Accidental deletion ke darr ko door karein. Seekhein ke trash bin se photos wapis kaise laate hain."
+      }
+    },
     {
       concern: "message_safety",
       taskId: "check-message",
@@ -27,24 +44,6 @@ export function recommendTask(selectedConcerns = [], attemptHistory = [], comple
         en: "You worry about pressing the wrong button. In this safe playground, tapping anything is completely safe and reversible.",
         ur: "آپ غلط بٹن دبانے سے ڈرتے ہیں۔ اس محفوظ کھیل کے میدان میں کسی بھی بٹن کو دبانا بالکل محفوظ ہے۔",
         "roman-ur": "Aap ghalat button dabane se darte hain. Yahan kuch bhi dabana 100% safe hai."
-      }
-    },
-    {
-      concern: "deleting",
-      taskId: "send-picture",
-      reason: {
-        en: "You worry about accidentally deleting things. Here you can practise selecting items with zero risk of losing anything.",
-        ur: "آپ کو چیزیں ڈیلیٹ ہو جانے کی فکر ہوتی ہے۔ یہاں آپ بنا کسی نقصان کے انتخاب کی مشق کر سکتے ہیں۔",
-        "roman-ur": "Aap ko deletion ki fikar rehti hai. Yahan kuch delete nahi hoga."
-      }
-    },
-    {
-      concern: "navigation",
-      taskId: "send-picture",
-      reason: {
-        en: "You find it hard to find items on your phone. We will clearly show you where common controls are located.",
-        ur: "آپ کو فون پر چیزیں تلاش کرنا مشکل لگتا ہے۔ ہم آپ کو واضح دکھائیں گے کہ عام کنٹرولز کہاں ہوتے ہیں۔",
-        "roman-ur": "Phone par controls dhoondna asaan banane ke liye yeh exercise hai."
       }
     },
     {
@@ -95,27 +94,30 @@ export function recommendTask(selectedConcerns = [], attemptHistory = [], comple
     }
   }
 
-  // Rule 3: Suggest any uncompleted curriculum task
-  for (const item of CONCERN_MATRIX) {
-    if (!completedTaskIds.includes(item.taskId)) {
+  // Rule 3: Suggest any uncompleted curriculum task across the full library
+  const ALL_TASKS = [
+    { id: "send-picture", reason: { en: "Let's start with a practical, common task: sending a picture in a message.", ur: "آئیے ایک عام مشق سے آغاز کرتے ہیں: پیغام میں تصویر بھیجنا۔", "roman-ur": "Aaiye aam mashq se shuru karein: photo send karna." } },
+    { id: "explore-maps", reason: { en: "Explore finding destinations and sharing your location safely on Google Maps.", ur: "نقشے پر جگہ تلاش کرنے اور لائیو لوکیشن شیئر کرنے کی مشق کریں۔", "roman-ur": "Maps par jagah aur location share karne ki practice." } },
+    { id: "safe-delete", reason: { en: "Overcome fear of deletion by learning how the trash bin protects your photos.", ur: "کوڑے دان کا استعمال سیکھ کر تصویر ڈیلیٹ ہونے کا خوف ختم کریں۔", "roman-ur": "Trash bin ka use seekh kar deletion ka darr door karein." } },
+    { id: "check-message", reason: { en: "Learn how to spot suspicious scam messages asking for verification codes.", ur: "مشکوک پیغامات اور جعلی کوڈز کی جانچ کرنا سیکھیں۔", "roman-ur": "Scam messages aur OTP codes ko pehchanna seekhein." } }
+  ];
+
+  for (const t of ALL_TASKS) {
+    if (!completedTaskIds.includes(t.id)) {
       return {
-        taskId: item.taskId,
-        reason: {
-          en: "Ready for your next digital skill? Here is a helpful practice scenario.",
-          ur: "اگلی ڈیجیٹل مہارت کے لیے تیار ہیں؟ یہاں ایک مفید مشق ہے۔",
-          "roman-ur": "Agli skill seekhne ke liye yeh exercise try karein."
-        }
+        taskId: t.id,
+        reason: t.reason
       };
     }
   }
 
-  // Default fallback: Always recommend the primary demo task (send-picture)
+  // Default fallback if all completed
   return {
     taskId: "send-picture",
     reason: {
       en: "Practise sending a picture in a fictional message. Explore freely!",
-      ur: "فرضی پیغام میں تصویر بھیجنے کی مشق کریں۔ اطمینان سے کوشش کریں!",
-      "roman-ur": "Farzi message mein picture send karne ki practice karein."
+      ur: "تصویر منسلک کرنے اور بھیجنے کی مشق کریں۔ آزادی سے ایکسپلور کریں!",
+      "roman-ur": "Tasveer attach aur send karne ki practice karein."
     }
   };
 }

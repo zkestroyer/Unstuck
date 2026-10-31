@@ -54,7 +54,7 @@ export default function SafetyScenarioScreen({
 
   const handleHear = () => {
     const textToSpeak = `${t.heading}. Message from ${senderName}: ${messageText}. ${questionText}`;
-    onHear(textToSpeak);
+    onHear(textToSpeak, `safety_${currentScenarioIndex}`);
   };
 
   return (

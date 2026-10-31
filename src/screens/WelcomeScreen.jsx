@@ -9,7 +9,7 @@ export default function WelcomeScreen({ onStart, language = 'en', onHear, isSpea
 
   const handleHear = () => {
     const fullText = `${t.heading}. ${t.subheading}. ${t.reassurance}`;
-    onHear(fullText);
+    onHear(fullText, 'welcome');
   };
 
   return (

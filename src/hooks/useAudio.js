@@ -11,13 +11,13 @@ export function useAudio() {
     };
   }, []);
 
-  const speak = useCallback((text, lang = 'en') => {
+  const speak = useCallback((text, lang = 'en', audioKey = null) => {
     if (!text || !supported) return;
 
     setIsPlaying(true);
     speakText(text, lang, () => {
       setIsPlaying(false);
-    });
+    }, audioKey);
   }, [supported]);
 
   const stop = useCallback(() => {

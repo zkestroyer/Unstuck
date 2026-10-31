@@ -6,6 +6,7 @@ import HintPanel from '../components/HintPanel';
 import HelpStrip from '../components/HelpStrip';
 import SimulatedPhone from '../components/SimulatedPhone';
 import PrimaryButton from '../components/PrimaryButton';
+import SecondaryButton from '../components/SecondaryButton';
 import { tasks } from '../data/tasks';
 import { practiceReducer, INITIAL_PRACTICE_STATE } from '../logic/practiceReducer';
 import styles from './GuidedPracticeScreen.module.css';
@@ -179,7 +180,7 @@ export default function GuidedPracticeScreen({
 
   const handleHear = () => {
     const textToSpeak = `${instruction}. ${state.feedbackMessage || ''}`;
-    onHear(textToSpeak);
+    onHear(textToSpeak, `task_${taskId}_${state.currentStep}`);
   };
 
   const handleStartAgain = () => {
@@ -347,6 +348,8 @@ export default function GuidedPracticeScreen({
         {/* Right Panel: Simulated Mobile Phone */}
         <div className={styles.phonePanel}>
           <SimulatedPhone
+            taskId={taskId}
+            currentStep={state.currentStep}
             messages={messages}
             highlightedControl={state.highlightedControl}
             pictureTrayOpen={state.pictureTrayOpen || state.currentStep === 1}

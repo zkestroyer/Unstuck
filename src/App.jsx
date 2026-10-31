@@ -8,6 +8,7 @@ import GuidedPracticeScreen from './screens/GuidedPracticeScreen';
 import IndependentAttemptScreen from './screens/IndependentAttemptScreen';
 import SummaryScreen from './screens/SummaryScreen';
 import SafetyScenarioScreen from './screens/SafetyScenarioScreen';
+import LibraryScreen from './screens/LibraryScreen';
 
 import { recommendTask } from './logic/recommendTask';
 import { createAttemptRecord } from './logic/progress';
@@ -26,17 +27,32 @@ const DEFAULT_STATE = {
   completedTaskIds: []
 };
 
+const VALID_SCREENS = [
+  'welcome',
+  'fearMap',
+  'recommendation',
+  'practiceIntro',
+  'guidedPractice',
+  'independentAttempt',
+  'summary',
+  'safetyScenario',
+  'library'
+];
+
 export default function App() {
   const [persistedState, setPersistedState, resetStorage] = useLocalStorage(DEFAULT_STATE);
 
-  const [screen, setScreen] = useState(persistedState.screen || 'welcome');
-  const [language, setLanguage] = useState(persistedState.language || 'en');
-  const [selectedConcerns, setSelectedConcerns] = useState(persistedState.selectedConcerns || []);
-  const [currentTaskId, setCurrentTaskId] = useState(persistedState.currentTaskId || 'send-picture');
-  const [recommendedTaskId, setRecommendedTaskId] = useState(persistedState.recommendedTaskId || 'send-picture');
-  const [recommendationReason, setRecommendationReason] = useState(persistedState.recommendationReason || '');
-  const [attemptHistory, setAttemptHistory] = useState(persistedState.attemptHistory || []);
-  const [completedTaskIds, setCompletedTaskIds] = useState(persistedState.completedTaskIds || []);
+  const [screen, setScreen] = useState(() => {
+    const s = persistedState?.screen;
+    return VALID_SCREENS.includes(s) ? s : 'welcome';
+  });
+  const [language, setLanguage] = useState(persistedState?.language || 'en');
+  const [selectedConcerns, setSelectedConcerns] = useState(persistedState?.selectedConcerns || []);
+  const [currentTaskId, setCurrentTaskId] = useState(persistedState?.currentTaskId || 'send-picture');
+  const [recommendedTaskId, setRecommendedTaskId] = useState(persistedState?.recommendedTaskId || 'send-picture');
+  const [recommendationReason, setRecommendationReason] = useState(persistedState?.recommendationReason || '');
+  const [attemptHistory, setAttemptHistory] = useState(persistedState?.attemptHistory || []);
+  const [completedTaskIds, setCompletedTaskIds] = useState(persistedState?.completedTaskIds || []);
 
   const [practiceMode, setPracticeMode] = useState('guided');
   const [speakingId, setSpeakingId] = useState(null);
@@ -65,9 +81,9 @@ export default function App() {
   }, [selectedConcerns, attemptHistory, completedTaskIds]);
 
   // Handle TTS speaker helper
-  const handleHear = (text, id = null) => {
+  const handleHear = (text, id = null, audioKey = null) => {
     setSpeakingId(id);
-    speak(text, language);
+    speak(text, language, audioKey || id);
   };
 
   // Fear Map Handlers
@@ -187,6 +203,19 @@ export default function App() {
     setCompletedTaskIds([]);
   };
 
+  const handleSelectTaskFromLibrary = (taskId, mode = 'guided') => {
+    setCurrentTaskId(taskId);
+    if (mode === 'safety' || taskId === 'check-message') {
+      setScreen('safetyScenario');
+    } else if (mode === 'independent') {
+      setPracticeMode('independent');
+      setScreen('independentAttempt');
+    } else {
+      setPracticeMode('guided');
+      setScreen('guidedPractice');
+    }
+  };
+
   const SCREEN_BACK_MAP = {
     fearMap: 'welcome',
     recommendation: 'fearMap',
@@ -194,7 +223,8 @@ export default function App() {
     guidedPractice: 'practiceIntro',
     independentAttempt: 'guidedPractice',
     safetyScenario: 'recommendation',
-    summary: 'welcome'
+    summary: 'welcome',
+    library: 'welcome'
   };
 
   const handleBack = () => {
@@ -308,6 +338,18 @@ export default function App() {
         {screen === 'safetyScenario' && (
           <SafetyScenarioScreen
             onFinishSafety={handleFinishSafety}
+            onBack={handleBack}
+            language={language}
+            onHear={handleHear}
+            isSpeaking={isPlaying}
+          />
+        )}
+
+        {screen === 'library' && (
+          <LibraryScreen
+            onSelectTask={handleSelectTaskFromLibrary}
+            completedTaskIds={completedTaskIds}
+            recommendedTaskId={recommendedTaskId}
             onBack={handleBack}
             language={language}
             onHear={handleHear}

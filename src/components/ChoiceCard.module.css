@@ -1,37 +1,41 @@
 .card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-md);
-  padding: var(--space-md) var(--space-lg);
-  min-height: 64px;
+  padding: 16px 20px;
+  min-height: 84px;
   background-color: var(--color-surface);
   border: 2px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-out);
+  transition: all var(--duration-moderate) var(--ease-out);
   user-select: none;
 }
 
 .card:hover {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-border);
+  background-color: #FCFBF8;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .selected {
   border-color: var(--color-primary) !important;
   background-color: var(--color-primary-light) !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
 .checkIndicator {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-full);
-  border: 2px solid var(--color-border);
+  border: 2.5px solid var(--color-border);
+  background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
   transition: all var(--duration-fast) var(--ease-out);
 }
 
@@ -41,8 +45,32 @@
 }
 
 .checkIcon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+}
+
+.imageWrapper {
+  width: 62px;
+  height: 62px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #FAF6F0 0%, #F1EAE0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cardImage {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform var(--duration-moderate) var(--ease-out);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.06);
 }
 
 .content {
@@ -50,46 +78,48 @@
 }
 
 .label {
-  font-size: var(--font-size-body-md);
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .description {
   font-size: var(--font-size-body-sm);
   color: var(--color-text-secondary);
   margin-top: 4px;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .hearBtn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
+  background-color: #FFFFFF;
   color: var(--color-primary);
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
   flex-shrink: 0;
-  margin-top: 2px;
   transition: all var(--duration-fast) var(--ease-out);
 }
 
 .hearBtn:hover {
-  background-color: #FFFFFF;
+  background-color: var(--color-primary-light);
   border-color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 .speakerIcon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .speaking {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
-  border-color: var(--color-primary);
+  background-color: var(--color-primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(30, 94, 79, 0.2) !important;
 }

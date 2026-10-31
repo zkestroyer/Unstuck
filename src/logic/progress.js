@@ -57,3 +57,5 @@ export function formatAttemptSummary(attempt, language = "en") {
   if (language === "roman-ur") return "Guided practice kamyabi se mukammal ki.";
   return "Completed successfully in guided practice.";
 }
+
+export const formatHonestSummary = formatAttemptSummary;

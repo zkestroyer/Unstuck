@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120">
+  <rect width="320" height="120" rx="12" fill="#F3E8FF"/>
+  <!-- Phone outline -->
+  <rect x="100" y="12" width="120" height="96" rx="10" fill="#FFFFFF" stroke="#9333EA" stroke-width="2"/>
+  <!-- Chat bubbles -->
+  <rect x="114" y="24" width="70" height="18" rx="6" fill="#E9D5FF"/>
+  <rect x="136" y="48" width="72" height="46" rx="8" fill="#7E22CE"/>
+  <!-- Attached image -->
+  <rect x="142" y="54" width="36" height="34" rx="4" fill="#F3E8FF"/>
+  <circle cx="152" cy="64" r="3" fill="#F59E0B"/>
+  <polygon points="144,84 154,74 162,82 170,76 176,84" fill="#10B981"/>
+  <!-- Paperclip -->
+  <circle cx="60" cy="60" r="22" fill="#9333EA"/>
+  <path d="M54 66 L64 56 C66 54 66 50 64 48 C62 46 58 46 56 48 L46 58 C43 61 43 66 46 69 C49 72 54 72 57 69 L67 59" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+</svg>

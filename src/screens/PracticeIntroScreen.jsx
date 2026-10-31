@@ -17,7 +17,7 @@ export default function PracticeIntroScreen({
 
   const handleHear = () => {
     const fullText = `${t.heading}. ${t.subheading}`;
-    onHear(fullText);
+    onHear(fullText, 'practice_intro');
   };
 
   return (

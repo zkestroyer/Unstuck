@@ -9,7 +9,7 @@ import styles from './SummaryScreen.module.css';
 
 export default function SummaryScreen({
   attemptHistory = [],
-  recommendedTaskId,
+  recommendedTaskId = 'send-picture',
   recommendationReason,
   onTrySuggested,
   onPractiseAgain,
@@ -29,14 +29,31 @@ export default function SummaryScreen({
     : recommendationReason;
 
   const handleHear = () => {
-    const summaryNarrative = `${t.heading}. You completed ${attemptHistory.length} practice exercises today. ${t.nextSuggestionHeader}: ${nextTaskTitle}. ${reasonText}`;
-    onHear(summaryNarrative);
+    const summaryNarrative = `${t.heading}. ${t.subheading}. ${t.nextSuggestionHeader}: ${nextTaskTitle}.`;
+    onHear(summaryNarrative, 'summary');
+  };
+
+  const getModuleIllustration = (id) => {
+    switch (id) {
+      case 'explore-maps':
+        return '/images/cards/module_maps.svg';
+      case 'safe-delete':
+        return '/images/cards/module_safe_delete.svg';
+      case 'check-message':
+        return '/images/cards/module_safety_scam.svg';
+      case 'send-picture':
+      default:
+        return '/images/cards/module_messaging.svg';
+    }
   };
 
   return (
     <div className={`screen-fade ${styles.container}`}>
+      {/* Header Area */}
       <div className={styles.headerArea}>
-        <span className={styles.badge}>HONEST PROGRESS</span>
+        <span className={styles.badge}>
+          🌱 {language === 'ur' ? 'پرسکون مشق کا ریکارڈ' : 'SAFE PRACTICE JOURNAL'}
+        </span>
         <h1 className={styles.heading}>{t.heading}</h1>
         <p className={styles.subheading}>{t.subheading}</p>
 
@@ -51,18 +68,35 @@ export default function SummaryScreen({
         )}
       </div>
 
-      {/* Actual Attempt History Cards */}
+      {/* Attempt History Section */}
       <div className={styles.historySection}>
-        <h2 className={styles.sectionTitle}>{t.attemptLabel}</h2>
+        <h2 className={styles.sectionTitle}>
+          {language === 'ur' ? 'آپ کی مکمل کردہ سرگرمیاں' : 'Your Learning Activities'}
+        </h2>
+
         {attemptHistory.length === 0 ? (
           <div className={styles.emptyState}>
-            <p>You haven't completed any exercises yet. Start your first practice below!</p>
+            <div className={styles.emptyIconCircle}>
+              <span className={styles.emptyIcon}>🌱</span>
+            </div>
+            <div className={styles.emptyTextContent}>
+              <h3 className={styles.emptyTitle}>
+                {language === 'ur'
+                  ? 'آپ کا سیکھنے کا سفر یہاں شروع ہوتا ہے!'
+                  : 'Welcome to your practice journal!'}
+              </h3>
+              <p className={styles.emptyDesc}>
+                {language === 'ur'
+                  ? 'یہاں آپ کی ہر مشق بغیر کسی نمبر یا دباؤ کے محفوظ ہوگی۔ اپنی رفتار سے نیچے دی گئی سرگرمی شروع کریں۔'
+                  : 'Whenever you try a practice, your gentle milestones appear here — no scores, no grades, no pressure. You cannot break anything.'}
+              </p>
+            </div>
           </div>
         ) : (
           <div className={styles.historyList}>
             {attemptHistory.map((attempt, index) => {
               const title = attempt.taskId === 'check-message'
-                ? 'Check a Suspicious Message'
+                ? (language === 'ur' ? 'مشکوک پیغامات کی جانچ' : 'Check a Suspicious Message')
                 : (tasks[attempt.taskId]?.title[language] || tasks[attempt.taskId]?.title.en || 'Practice Task');
 
               return (
@@ -80,11 +114,21 @@ export default function SummaryScreen({
 
       {/* Suggested Next Step Box */}
       <div className={styles.nextStepCard}>
+        <div className={styles.nextCardBannerWrap}>
+          <img
+            src={getModuleIllustration(recommendedTaskId)}
+            alt=""
+            className={styles.nextCardBanner}
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
+        </div>
+
         <div className={styles.nextStepHeader}>
-          <span className={styles.compassIcon}>🧭</span>
           <div>
-            <h3 className={styles.nextStepTitle}>{t.nextSuggestionHeader}</h3>
-            <p className={styles.nextTaskName}>{nextTaskTitle}</p>
+            <span className={styles.nextStepCategory}>
+              ★ {language === 'ur' ? 'تجویز کردہ اگلی مشق' : 'Recommended Next Step'}
+            </span>
+            <h3 className={styles.nextTaskName}>{nextTaskTitle}</h3>
           </div>
         </div>
 
