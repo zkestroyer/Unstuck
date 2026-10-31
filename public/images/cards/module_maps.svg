@@ -1,14 +1,74 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" width="320" height="120">
-  <rect width="320" height="120" rx="12" fill="#E0F2FE"/>
-  <path d="M0 45 Q80 20 160 50 T320 40 L320 80 Q240 70 160 90 T0 80 Z" fill="#BAE6FD" opacity="0.7"/>
-  <rect x="180" y="60" width="90" height="40" rx="8" fill="#BBF7D0"/>
-  <line x1="40" y1="120" x2="140" y2="0" stroke="#FFFFFF" stroke-width="12"/>
-  <line x1="100" y1="0" x2="260" y2="120" stroke="#FFFFFF" stroke-width="10"/>
-  <!-- Destination pin -->
-  <g transform="translate(140, 25)">
-    <path d="M16 0 C8 0 0 8 0 16 C0 28 16 44 16 44 C16 44 32 28 32 16 C32 8 24 0 16 0 Z" fill="#EF4444"/>
-    <circle cx="16" cy="16" r="6" fill="#FFFFFF"/>
+  <rect width="320" height="120" rx="12" fill="#E8F0FE"/>
+  <!-- Vector Map Grid & Roads -->
+  <path d="M0 45 Q80 20 160 50 T320 40 L320 80 Q240 70 160 90 T0 80 Z" fill="#D2E3FC" opacity="0.6"/>
+  <rect x="190" y="55" width="85" height="45" rx="8" fill="#CEEAD6"/>
+  <line x1="30" y1="120" x2="130" y2="0" stroke="#FFFFFF" stroke-width="12"/>
+  <line x1="90" y1="0" x2="250" y2="120" stroke="#FFFFFF" stroke-width="10"/>
+
+  <!-- ORIGINAL GOOGLE MAPS APP ICON (Rounded White Squircle + 4-Color Pin) -->
+  <g transform="translate(24, 20)">
+    <!-- App icon base -->
+    <rect width="76" height="76" rx="18" fill="#FFFFFF" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.15))"/>
+    <!-- Google Maps 4-color Pin SVG -->
+    <g transform="translate(20, 12)">
+      <!-- Red top circle & head -->
+      <path d="M18 0 C10 0 4 6 4 14 C4 23 14 36 18 42 C18 42 18 42 18 42 C18 42 18 42 18 42 C22 36 32 23 32 14 C32 6 26 0 18 0 Z" fill="#EA4335"/>
+      <!-- Blue bottom curve -->
+      <path d="M18 42 C18 42 10 30 6 22 L14 16 L18 42 Z" fill="#4285F4"/>
+      <!-- Green side curve -->
+      <path d="M18 42 L22 16 L30 22 C26 30 18 42 18 42 Z" fill="#34A853"/>
+      <!-- Yellow accent -->
+      <path d="M14 16 L6 22 C4 19 4 16 4 14 L18 14 L14 16 Z" fill="#FBBC04"/>
+      <!-- White Center Circle -->
+      <circle cx="18" cy="14" r="6" fill="#FFFFFF"/>
+    </g>
+    <!-- Label -->
+    <text x="38" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#1A73E8" text-anchor="middle">Google Maps</text>
   </g>
-  <rect x="16" y="16" width="100" height="28" rx="6" fill="#FFFFFF" opacity="0.95"/>
-  <text x="66" y="35" font-family="system-ui" font-size="11" font-weight="700" fill="#0369A1" text-anchor="middle">📍 Live GPS</text>
+
+  <!-- Destination Pin on Map Preview -->
+  <g transform="translate(145, 18)">
+    <rect width="142" height="30" rx="8" fill="#FFFFFF" filter="drop-shadow(0 2px 6px rgba(0,0,0,0.12))"/>
+    <!-- Google G Logo -->
+    <g transform="translate(10, 7)">
+      <path d="M8 3.5 C9.8 3.5 11 4.3 11.7 5 L14.2 2.5 C12.6 1 10.5 0 8 0 C4.9 0 2.2 1.8 0.9 4.4 L3.8 6.6 C4.5 4.8 6.1 3.5 8 3.5 Z" fill="#EA4335"/>
+      <path d="M15.7 8.2 C15.7 7.6 15.6 7.1 15.5 6.6 L8 6.6 L8 9.8 L12.4 9.8 C12.2 10.9 11.5 11.8 10.5 12.5 L13.3 14.7 C15 13.1 16 10.9 15.7 8.2 Z" fill="#4285F4"/>
+      <path d="M3.8 9.4 C3.6 8.8 3.5 8.2 3.5 7.5 C3.5 6.8 3.6 6.2 3.8 5.6 L0.9 3.4 C0.3 4.6 0 6 0 7.5 C0 9 0.3 10.4 0.9 11.6 L3.8 9.4 Z" fill="#FBBC05"/>
+      <path d="M8 15 C10.5 15 12.6 14.1 14.1 12.7 L11.3 10.5 C10.5 11.1 9.4 11.5 8 11.5 C6.1 11.5 4.5 10.2 3.8 8.4 L0.9 10.6 C2.2 13.2 4.9 15 8 15 Z" fill="#34A853"/>
+    </g>
+    <text x="32" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#202124">City Pharmacy</text>
+    <!-- Live GPS Dot -->
+    <circle cx="128" cy="15" r="4" fill="#34A853"/>
+  </g>
+
+  <!-- Authentic Directions & Share Action Pills -->
+  <g transform="translate(145, 56)">
+    <!-- Blue Directions Button -->
+    <rect width="70" height="26" rx="6" fill="#1A73E8"/>
+    <!-- Turn Right Arrow -->
+    <path d="M12 17 L12 12 C12 10.5 13.5 9 15 9 L21 9 M18 6 L22 9 L18 12" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="44" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" text-anchor="middle">Directions</text>
+
+    <!-- Share Location Button with Authentic 3-Node Share Icon -->
+    <g transform="translate(76, 0)">
+      <rect width="66" height="26" rx="6" fill="#FFFFFF" stroke="#DADCE0"/>
+      <!-- Authentic Android 3-node share icon -->
+      <g transform="translate(10, 6)">
+        <circle cx="10" cy="3" r="2" fill="#1A73E8"/>
+        <circle cx="2" cy="7" r="2" fill="#1A73E8"/>
+        <circle cx="10" cy="11" r="2" fill="#1A73E8"/>
+        <line x1="3.5" y1="6" x2="8.5" y2="4" stroke="#1A73E8" stroke-width="1.2"/>
+        <line x1="3.5" y1="8" x2="8.5" y2="10" stroke="#1A73E8" stroke-width="1.2"/>
+      </g>
+      <text x="40" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#1A73E8" text-anchor="middle">Share</text>
+    </g>
+  </g>
+
+  <!-- Live Location Indicator -->
+  <g transform="translate(145, 90)">
+    <rect width="142" height="20" rx="4" fill="#E6F4EA"/>
+    <circle cx="16" cy="10" r="3.5" fill="#137333"/>
+    <text x="26" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#137333">Live Location · 15 mins</text>
+  </g>
 </svg>

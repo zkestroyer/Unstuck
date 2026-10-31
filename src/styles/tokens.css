@@ -12,6 +12,7 @@
   --color-text-on-primary: #FFFFFF;   /* Pure white text on primary buttons */
   --color-text-on-warning: #704400;   /* High-contrast amber text */
   --color-text-danger: #8B2D28;       /* High-risk explanatory text */
+  --color-warning-text: #704400;
 
   /* ── Brand & Primary Actions: Botanical Emerald ── */
   --color-primary: #1E5E4F;           /* Deep comforting forest teal */

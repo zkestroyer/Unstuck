@@ -6,6 +6,13 @@
 .headerArea {
   text-align: center;
   margin-bottom: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeWrap {
+  margin-bottom: var(--space-sm);
 }
 
 .badge {
@@ -17,7 +24,6 @@
   padding: 6px 16px;
   border-radius: var(--radius-full);
   letter-spacing: 0.05em;
-  margin-bottom: var(--space-sm);
   border: 1px solid var(--color-primary-border);
 }
 
@@ -38,9 +44,16 @@
 
 .libraryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-lg);
   margin-bottom: var(--space-2xl);
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .libraryGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .libraryCard {
@@ -50,6 +63,8 @@
   padding: var(--space-md);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   gap: 12px;
   transition: all var(--duration-moderate) var(--ease-out);
   box-shadow: var(--shadow-sm);
@@ -64,7 +79,7 @@
 
 .cardBannerWrap {
   width: 100%;
-  height: 125px;
+  height: 130px;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: linear-gradient(135deg, #FAF6F0 0%, #F1EAE0 100%);
@@ -76,12 +91,12 @@
 .cardBanner {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform var(--duration-moderate) var(--ease-out);
 }
 
 .libraryCard:hover .cardBanner {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .cardHeader {
@@ -93,6 +108,9 @@
   color: var(--color-text-primary);
   font-weight: 700;
   line-height: 1.35;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .cardCategory {
@@ -108,18 +126,20 @@
   color: var(--color-text-secondary);
   line-height: 1.5;
   flex: 1;
+  min-height: 48px;
 }
 
 .cardFooter {
   padding-top: var(--space-sm);
   border-top: 1px solid var(--color-border);
+  margin-top: auto;
 }
 
 .buttonGroup {
   display: flex;
   gap: 8px;
   align-items: center;
-  flex-wrap: wrap;
+  width: 100%;
 }
 
 .statusPill {

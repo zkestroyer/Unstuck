@@ -81,26 +81,7 @@ export default function LibraryScreen({
       <PracticeNotice message="Full Practice Catalog: Explore all features freely. All exercises run in 100% isolated sandboxes." />
 
       <div className={styles.headerArea}>
-        {onBack && (
-          <button
-            type="button"
-            onClick={onBack}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-primary)',
-              fontWeight: 600,
-              fontSize: 15,
-              cursor: 'pointer',
-              marginBottom: 12
-            }}
-          >
-            ← {isUrdu ? 'واپس جائیں' : 'Back'}
-          </button>
-        )}
+        
 
         <div>
           <span className={styles.badge}>🌿 {isUrdu ? 'تمام فیچرز' : 'ALL FEATURES & SKILL MAP'}</span>

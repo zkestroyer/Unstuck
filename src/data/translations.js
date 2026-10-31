@@ -78,6 +78,17 @@ export const translations = {
       whatWouldYouDo: "What would you do?",
       tryAnother: "Try Next Scenario",
       finishSafety: "Complete Safety Check"
+    },
+    confidenceMap: {
+      heading: "Your Digital Confidence Map",
+      subheading: "Your personal, living learning journey. No tests or grades — just honest progress.",
+      started: "Just getting started",
+      improving: "Practising and improving",
+      comfortable: "Comfortable with this skill"
+    },
+    exploration: {
+      heading: "What Happens If...? Exploration Mode",
+      subheading: "Freely test any button or smartphone action. See what happens without any real-world risk."
     }
   },
 
@@ -159,6 +170,17 @@ export const translations = {
       whatWouldYouDo: "آپ کیا کریں گے؟",
       tryAnother: "اگلا منظر آزمائیں",
       finishSafety: "سیکیورٹی مشق مکمل کریں"
+    },
+    confidenceMap: {
+      heading: "آپ کے اعتماد کا نقشہ",
+      subheading: "آپ کے سیکھنے کا سفر۔ کوئی نمبر یا امتحان نہیں۔",
+      started: "آغاز ہو رہا ہے",
+      improving: "بہتری آ رہی ہے",
+      comfortable: "اس مہارت میں پراعتماد"
+    },
+    exploration: {
+      heading: "اگر میں یہ دباؤں تو کیا ہوگا؟",
+      subheading: "بغیر کسی ڈر کے فون کے بٹنوں کو ٹیسٹ کریں۔"
     }
   },
 
@@ -240,6 +262,17 @@ export const translations = {
       whatWouldYouDo: "Aap kya karenge?",
       tryAnother: "Agla scenario try karein",
       finishSafety: "Safety Check mukammal karein"
+    },
+    confidenceMap: {
+      heading: "Aap Ke Aitemad Ka Naqsha",
+      subheading: "Aap ki safe practice ka real record. Koi test ya score nahi.",
+      started: "Aghaz ho raha hai",
+      improving: "Behtari jari hai",
+      comfortable: "Is skill mein pur-aitamad"
+    },
+    exploration: {
+      heading: "What Happens If...? Exploration Mode",
+      subheading: "Bina kisi khauf ke buttons aur phone actions ko test karein."
     }
   }
 };

@@ -6,6 +6,9 @@ import RecommendationScreen from './screens/RecommendationScreen';
 import PracticeIntroScreen from './screens/PracticeIntroScreen';
 import GuidedPracticeScreen from './screens/GuidedPracticeScreen';
 import IndependentAttemptScreen from './screens/IndependentAttemptScreen';
+import RealWorldTransferScreen from './screens/RealWorldTransferScreen';
+import ConfidenceMapScreen from './screens/ConfidenceMapScreen';
+import ExplorationModeScreen from './screens/ExplorationModeScreen';
 import SummaryScreen from './screens/SummaryScreen';
 import SafetyScenarioScreen from './screens/SafetyScenarioScreen';
 import LibraryScreen from './screens/LibraryScreen';
@@ -24,7 +27,15 @@ const DEFAULT_STATE = {
   recommendedTaskId: 'send-picture',
   recommendationReason: 'Practise sending a picture in a fictional message. Explore freely!',
   attemptHistory: [],
-  completedTaskIds: []
+  completedTaskIds: [],
+  transferReadiness: {},
+  mistakesHistory: [],
+  accessibility: {
+    textSize: 'normal',
+    highContrast: false,
+    largeButtons: false,
+    reducedMotion: false
+  }
 };
 
 const VALID_SCREENS = [
@@ -34,6 +45,9 @@ const VALID_SCREENS = [
   'practiceIntro',
   'guidedPractice',
   'independentAttempt',
+  'realWorldTransfer',
+  'confidenceMap',
+  'exploration',
   'summary',
   'safetyScenario',
   'library'
@@ -53,11 +67,29 @@ export default function App() {
   const [recommendationReason, setRecommendationReason] = useState(persistedState?.recommendationReason || '');
   const [attemptHistory, setAttemptHistory] = useState(persistedState?.attemptHistory || []);
   const [completedTaskIds, setCompletedTaskIds] = useState(persistedState?.completedTaskIds || []);
+  const [transferReadiness, setTransferReadiness] = useState(persistedState?.transferReadiness || {});
+  const [mistakesHistory, setMistakesHistory] = useState(persistedState?.mistakesHistory || []);
+  const [accessibility, setAccessibility] = useState(persistedState?.accessibility || {
+    textSize: 'normal',
+    highContrast: false,
+    largeButtons: false,
+    reducedMotion: false
+  });
 
   const [practiceMode, setPracticeMode] = useState('guided');
   const [speakingId, setSpeakingId] = useState(null);
 
   const { speak, isPlaying } = useAudio();
+
+  // Apply accessibility attributes to document element
+  useEffect(() => {
+    const root = document.documentElement;
+    root.setAttribute('data-text-size', accessibility.textSize || 'normal');
+    root.setAttribute('data-contrast', accessibility.highContrast ? 'high' : 'normal');
+    root.setAttribute('data-large-buttons', accessibility.largeButtons ? 'true' : 'false');
+    root.setAttribute('data-reduced-motion', accessibility.reducedMotion ? 'true' : 'false');
+    root.setAttribute('lang', language);
+  }, [accessibility, language]);
 
   // Sync state changes to persistence
   useEffect(() => {
@@ -69,16 +101,37 @@ export default function App() {
       recommendedTaskId,
       recommendationReason,
       attemptHistory,
-      completedTaskIds
+      completedTaskIds,
+      transferReadiness,
+      mistakesHistory,
+      accessibility
     });
-  }, [screen, language, selectedConcerns, currentTaskId, recommendedTaskId, recommendationReason, attemptHistory, completedTaskIds]);
+  }, [
+    screen,
+    language,
+    selectedConcerns,
+    currentTaskId,
+    recommendedTaskId,
+    recommendationReason,
+    attemptHistory,
+    completedTaskIds,
+    transferReadiness,
+    mistakesHistory,
+    accessibility
+  ]);
 
   // Recalculate recommendation whenever concerns or attempts change
   useEffect(() => {
-    const rec = recommendTask(selectedConcerns, attemptHistory, completedTaskIds);
+    const rec = recommendTask(
+      selectedConcerns,
+      attemptHistory,
+      completedTaskIds,
+      transferReadiness,
+      mistakesHistory
+    );
     setRecommendedTaskId(rec.taskId);
     setRecommendationReason(rec.reason);
-  }, [selectedConcerns, attemptHistory, completedTaskIds]);
+  }, [selectedConcerns, attemptHistory, completedTaskIds, transferReadiness, mistakesHistory]);
 
   // Handle TTS speaker helper
   const handleHear = (text, id = null, audioKey = null) => {
@@ -94,7 +147,13 @@ export default function App() {
   };
 
   const handleContinueFromFearMap = () => {
-    const rec = recommendTask(selectedConcerns, attemptHistory, completedTaskIds);
+    const rec = recommendTask(
+      selectedConcerns,
+      attemptHistory,
+      completedTaskIds,
+      transferReadiness,
+      mistakesHistory
+    );
     setRecommendedTaskId(rec.taskId);
     setRecommendationReason(rec.reason);
     setCurrentTaskId(rec.taskId);
@@ -159,7 +218,7 @@ export default function App() {
     setScreen('independentAttempt');
   };
 
-  // Independent Mode Completion Handlers
+  // Independent Mode Completion Handlers -> Leads to Real-World Transfer Bridge
   const handleFinishIndependent = ({ hintsUsed, completedIndependently }) => {
     const record = createAttemptRecord({
       taskId: currentTaskId,
@@ -174,6 +233,15 @@ export default function App() {
       setCompletedTaskIds((prev) => [...prev, currentTaskId]);
     }
 
+    setScreen('realWorldTransfer');
+  };
+
+  // Real-World Transfer Confirmation Handler
+  const handleConfirmTransfer = (readinessChoice) => {
+    setTransferReadiness((prev) => ({
+      ...prev,
+      [currentTaskId]: readinessChoice
+    }));
     setScreen('summary');
   };
 
@@ -195,7 +263,7 @@ export default function App() {
       setCompletedTaskIds((prev) => [...prev, 'check-message']);
     }
 
-    setScreen('summary');
+    setScreen('realWorldTransfer');
   };
 
   // Reset Handler
@@ -208,9 +276,11 @@ export default function App() {
     setRecommendationReason('Practise sending a picture in a fictional message. Explore freely!');
     setAttemptHistory([]);
     setCompletedTaskIds([]);
+    setTransferReadiness({});
+    setMistakesHistory([]);
   };
 
-  const handleSelectTaskFromLibrary = (taskId, mode = 'guided') => {
+  const handleSelectTask = (taskId, mode = 'guided') => {
     setCurrentTaskId(taskId);
     if (mode === 'safety' || taskId === 'check-message') {
       setScreen('safetyScenario');
@@ -229,6 +299,9 @@ export default function App() {
     practiceIntro: 'recommendation',
     guidedPractice: 'practiceIntro',
     independentAttempt: 'guidedPractice',
+    realWorldTransfer: 'independentAttempt',
+    confidenceMap: 'welcome',
+    exploration: 'welcome',
     safetyScenario: 'recommendation',
     summary: 'welcome',
     library: 'welcome'
@@ -251,6 +324,8 @@ export default function App() {
         language={language}
         onLanguageChange={(newLang) => setLanguage(newLang)}
         onReset={handleResetSession}
+        accessibility={accessibility}
+        onChangeAccessibility={(newAcc) => setAccessibility(newAcc)}
       />
 
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -322,9 +397,42 @@ export default function App() {
           />
         )}
 
+        {screen === 'realWorldTransfer' && (
+          <RealWorldTransferScreen
+            taskId={currentTaskId}
+            language={language}
+            onConfirmTransfer={handleConfirmTransfer}
+            onHear={handleHear}
+            isSpeaking={isPlaying}
+          />
+        )}
+
+        {screen === 'confidenceMap' && (
+          <ConfidenceMapScreen
+            attemptHistory={attemptHistory}
+            completedTaskIds={completedTaskIds}
+            onSelectTask={handleSelectTask}
+            onBack={handleBack}
+            language={language}
+            onHear={handleHear}
+            isSpeaking={isPlaying}
+          />
+        )}
+
+        {screen === 'exploration' && (
+          <ExplorationModeScreen
+            onBack={handleBack}
+            language={language}
+            onHear={handleHear}
+            isSpeaking={isPlaying}
+          />
+        )}
+
         {screen === 'summary' && (
           <SummaryScreen
             attemptHistory={attemptHistory}
+            completedTaskIds={completedTaskIds}
+            selectedConcerns={selectedConcerns}
             recommendedTaskId={recommendedTaskId}
             recommendationReason={recommendationReason}
             onTrySuggested={() => {
@@ -343,6 +451,8 @@ export default function App() {
               setScreen('practiceIntro');
             }}
             onChangeConcerns={() => setScreen('fearMap')}
+            onOpenConfidenceMap={() => setScreen('confidenceMap')}
+            onOpenExploration={() => setScreen('exploration')}
             language={language}
             onHear={handleHear}
             isSpeaking={isPlaying}
@@ -361,7 +471,7 @@ export default function App() {
 
         {screen === 'library' && (
           <LibraryScreen
-            onSelectTask={handleSelectTaskFromLibrary}
+            onSelectTask={handleSelectTask}
             completedTaskIds={completedTaskIds}
             recommendedTaskId={recommendedTaskId}
             onBack={handleBack}
