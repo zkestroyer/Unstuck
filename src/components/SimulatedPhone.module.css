@@ -1,0 +1,7 @@
+/* SimulatedPhone local module */
+.phoneWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

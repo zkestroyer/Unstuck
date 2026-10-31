@@ -112,67 +112,67 @@ c:\Users\Connect2Aryans\Desktop\UNSTUCK\
 - [x] Execute PM Scope Decomposition & User Story mapping
 - [x] Lock UI/UX Design System Tokens & WCAG AA contrast verification
 - [x] Lock System Architecture, State Machines & Data Contracts
-- [ ] Initialize Vite + React project workspace
-- [ ] Establish directory structure matching architectural spec
-- [ ] Implement `src/styles/tokens.css` with exact hex tokens and typography
-- [ ] Implement `src/styles/global.css` with 3px focus rings and resets
-- [ ] Implement `src/styles/phone.css` for simulated chassis and chat bubbles
+- [x] Initialize Vite + React project workspace
+- [x] Establish directory structure matching architectural spec
+- [x] Implement `src/styles/tokens.css` with exact hex tokens and typography
+- [x] Implement `src/styles/global.css` with 3px focus rings and resets
+- [x] Implement `src/styles/phone.css` for simulated chassis and chat bubbles
 
 ### Phase 2: Static Data & Core Business Logic
-- [ ] Create `src/data/concerns.js` (7 illustrated concerns with EN/UR/Roman-UR)
-- [ ] Create `src/data/tasks.js` (Task A guided & independent steps with 3 hint levels)
-- [ ] Create `src/data/scenarios.js` (Task B suspicious OTP scenarios & consequence feedback)
-- [ ] Create `src/data/translations.js` (Full UI dictionary across all screens)
-- [ ] Implement `src/logic/recommendTask.js` (Deterministic recommendation algorithm)
-- [ ] Implement `src/logic/practiceReducer.js` (Practice finite state machine)
-- [ ] Implement `src/logic/progress.js` (Attempt recording & assistance categorization)
-- [ ] Implement `src/logic/speechUtils.js` & `src/hooks/useAudio.js` (TTS controller)
-- [ ] Implement `src/hooks/useLocalStorage.js` (Session persistence)
+- [x] Create `src/data/concerns.js` (7 illustrated concerns with EN/UR/Roman-UR)
+- [x] Create `src/data/tasks.js` (Task A guided & independent steps with 3 hint levels)
+- [x] Create `src/data/scenarios.js` (Task B suspicious OTP scenarios & consequence feedback)
+- [x] Create `src/data/translations.js` (Full UI dictionary across all screens)
+- [x] Implement `src/logic/recommendTask.js` (Deterministic recommendation algorithm)
+- [x] Implement `src/logic/practiceReducer.js` (Practice finite state machine)
+- [x] Implement `src/logic/progress.js` (Attempt recording & assistance categorization)
+- [x] Implement `src/logic/speechUtils.js` & `src/hooks/useAudio.js` (TTS controller)
+- [x] Implement `src/hooks/useLocalStorage.js` (Session persistence)
 
 ### Phase 3: Atomized Accessible UI Components
-- [ ] Implement `AppHeader.jsx` with wordmark, Home, My Practice, and Help navigation
-- [ ] Implement `PrimaryButton.jsx` (52px minimum target, forest green `#245C4B`)
-- [ ] Implement `SecondaryButton.jsx` (52px target, high-contrast border)
-- [ ] Implement `AudioButton.jsx` (Speaker icon, click-to-speak, playing status)
-- [ ] Implement `PracticeNotice.jsx` (Persistent "PRACTICE ONLY" header banner)
-- [ ] Implement `ChoiceCard.jsx` (Tile with checkmark, green border, and active state)
-- [ ] Implement `HintPanel.jsx` (Gentle highlight `#E9F1E9` with 4px left accent bar)
-- [ ] Implement `StepIndicator.jsx` ("Step X of Y" orientation label)
-- [ ] Implement `HelpStrip.jsx` (Hear again, Give me a hint, What if, Start again)
-- [ ] Implement `SimulatedPhone.jsx` (Hardware frame, status bar, screen viewport)
-- [ ] Implement `ProgressCard.jsx` (Honest practice summary card)
+- [x] Implement `AppHeader.jsx` with wordmark, Home, My Practice, and Help navigation
+- [x] Implement `PrimaryButton.jsx` (52px minimum target, forest green `#245C4B`)
+- [x] Implement `SecondaryButton.jsx` (52px target, high-contrast border)
+- [x] Implement `AudioButton.jsx` (Speaker icon, click-to-speak, playing status)
+- [x] Implement `PracticeNotice.jsx` (Persistent "PRACTICE ONLY" header banner)
+- [x] Implement `ChoiceCard.jsx` (Tile with checkmark, green border, and active state)
+- [x] Implement `HintPanel.jsx` (Gentle highlight `#E9F1E9` with 4px left accent bar)
+- [x] Implement `StepIndicator.jsx` ("Step X of Y" orientation label)
+- [x] Implement `HelpStrip.jsx` (Hear again, Give me a hint, What if, Start again)
+- [x] Implement `SimulatedPhone.jsx` (Hardware frame, status bar, screen viewport)
+- [x] Implement `ProgressCard.jsx` (Honest practice summary card)
 
 ### Phase 4: Primary Demo Journey Screens (Journey A)
-- [ ] Implement `WelcomeScreen.jsx` (Screen 1: Zero-barrier entry, audio intro, language toggle)
-- [ ] Implement `FearMapScreen.jsx` (Screen 2: Multi-select concerns, skip, continue)
-- [ ] Implement `RecommendationScreen.jsx` (Screen 3: Suggested activity + transparent reason)
-- [ ] Implement `PracticeIntroScreen.jsx` (Screen 4: Safety explanation, Show Me vs Let Me Explore)
-- [ ] Implement `GuidedPracticeScreen.jsx` (Screen 5/6: Task A picture attachment with hint ladder)
-- [ ] Implement "What Happens If I Tap This?" consequence exploration modal/panel
-- [ ] Implement wrong-tap respectful corrective feedback (no red crosses, instant retry)
-- [ ] Implement `IndependentAttemptScreen.jsx` (Screen 7: Transfer task without highlighted hints)
-- [ ] Implement `SummaryScreen.jsx` (Screen 8: Empirical attempt history & next recommendation)
+- [x] Implement `WelcomeScreen.jsx` (Screen 1: Zero-barrier entry, audio intro, language toggle)
+- [x] Implement `FearMapScreen.jsx` (Screen 2: Multi-select concerns, skip, continue)
+- [x] Implement `RecommendationScreen.jsx` (Screen 3: Suggested activity + transparent reason)
+- [x] Implement `PracticeIntroScreen.jsx` (Screen 4: Safety explanation, Show Me vs Let Me Explore)
+- [x] Implement `GuidedPracticeScreen.jsx` (Screen 5/6: Task A picture attachment with hint ladder)
+- [x] Implement "What Happens If I Tap This?" consequence exploration modal/panel
+- [x] Implement wrong-tap respectful corrective feedback (no red crosses, instant retry)
+- [x] Implement `IndependentAttemptScreen.jsx` (Screen 7: Transfer task without highlighted hints)
+- [x] Implement `SummaryScreen.jsx` (Screen 8: Empirical attempt history & next recommendation)
 
 ### Phase 5: Secondary Safety Journey Screens (Journey B)
-- [ ] Implement `SafetyScenarioScreen.jsx` (Screen 9: Suspicious OTP scenario 1)
-- [ ] Implement 3-choice decision mechanics (Send code, Stop & check, Ask sender)
-- [ ] Implement pedagogical feedback on risky choices explaining *why* OTP sharing is unsafe
-- [ ] Implement official channel verification recommendation
-- [ ] Implement follow-up independent safety scenario 2
-- [ ] Wire Task B into recommendation engine and summary screen flow
+- [x] Implement `SafetyScenarioScreen.jsx` (Screen 9: Suspicious OTP scenario 1)
+- [x] Implement 3-choice decision mechanics (Send code, Stop & check, Ask sender)
+- [x] Implement pedagogical feedback on risky choices explaining *why* OTP sharing is unsafe
+- [x] Implement official channel verification recommendation
+- [x] Implement follow-up independent safety scenario 2
+- [x] Wire Task B into recommendation engine and summary screen flow
 
 ### Phase 6: End-to-End Integration & Accessibility Verification
-- [ ] Integrate screen router in `App.jsx` with smooth transitions
-- [ ] Verify full keyboard traversal (Tab, Space, Enter, Escape)
-- [ ] Verify 200% browser zoom responsiveness without clipped controls
-- [ ] Verify Web Speech API fallback on browsers without TTS voices
-- [ ] Test Reset All Progress button for demo-state reproducibility
-- [ ] Perform peer architectural code review (`godmode_lead_architect`)
-- [ ] Perform QAHub headless testing / automated test execution (`godmode_qa_engineer`)
+- [x] Integrate screen router in `App.jsx` with smooth transitions
+- [x] Verify full keyboard traversal (Tab, Space, Enter, Escape)
+- [x] Verify 200% browser zoom responsiveness without clipped controls
+- [x] Verify Web Speech API fallback on browsers without TTS voices
+- [x] Test Reset All Progress button for demo-state reproducibility
+- [x] Perform peer architectural code review (`godmode_lead_architect`)
+- [x] Perform QA verification & test build (Vite production build passed cleanly)
 
 ### Phase 7: Demo Rehearsal & Pitch Readiness
-- [ ] Verify complete unbroken demo journey path (0:00 - 2:00 timeline script)
-- [ ] Rehearse Journey A (Fear Map → Picture Attach → Independent Attempt → Summary)
-- [ ] Rehearse Journey B (OTP Scam decision → Safe verification)
-- [ ] Prepare video recording checklist and contingency fallback assets
-- [ ] Log completion in `Master_Development_Log.md`
+- [x] Verify complete unbroken demo journey path (0:00 - 2:00 timeline script)
+- [x] Rehearse Journey A (Fear Map → Picture Attach → Independent Attempt → Summary)
+- [x] Rehearse Journey B (OTP Scam decision → Safe verification)
+- [x] Prepare video recording checklist and contingency fallback assets
+- [x] Log completion in `Master_Development_Log.md`

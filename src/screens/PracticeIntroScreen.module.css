@@ -1,0 +1,102 @@
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.phoneIconArea {
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-xs);
+}
+
+.phoneSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.heading {
+  font-size: var(--font-size-heading-xl);
+  color: var(--color-text-primary);
+}
+
+.subheading {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  line-height: var(--line-height-body);
+}
+
+.audioRow {
+  margin: var(--space-xs) 0;
+}
+
+.modesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  width: 100%;
+  margin-top: var(--space-lg);
+  text-align: left;
+}
+
+.modeCard {
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  background-color: #FAFCFA;
+}
+
+.modeHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.modeIcon {
+  font-size: 26px;
+}
+
+.modeTitle {
+  font-size: var(--font-size-heading-sm);
+  color: var(--color-text-primary);
+}
+
+.recommendedBadge {
+  font-size: 12px;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.modeDesc {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.modeActionBtn {
+  width: 100%;
+}
+
+@media (max-width: 680px) {
+  .modesGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.headerArea {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.badge {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.04em;
+}
+
+.heading {
+  font-size: var(--font-size-heading-xl);
+  color: var(--color-text-primary);
+}
+
+.recommendationCard {
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.taskHero {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.taskIconArea {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-gentle-highlight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconLarge {
+  font-size: 32px;
+}
+
+.taskTitle {
+  font-size: var(--font-size-heading-md);
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.taskDescription {
+  font-size: var(--font-size-body-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.reasonBox {
+  background-color: #F8FAF8;
+  border: 1.5px solid #D1E0D1;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.reasonHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-body-sm);
+  margin-bottom: 4px;
+}
+
+.lightbulbIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.reasonText {
+  font-size: var(--font-size-body-md);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+.safetyBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-warning-bg);
+  border: 1px solid #E8D4A8;
+  border-radius: var(--radius-md);
+  padding: 12px var(--space-md);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-on-warning);
+}
+
+.safetyIcon {
+  font-weight: bold;
+  background-color: #F6E0B5;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.audioRow {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.actionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.startBtn {
+  min-width: 220px;
+}
+
+@media (max-width: 640px) {
+  .taskHero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

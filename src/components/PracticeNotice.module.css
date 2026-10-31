@@ -1,0 +1,38 @@
+.noticeBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 10px var(--space-md);
+  background-color: var(--color-warning-bg);
+  border: 1px solid #E8D4A8;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.badge {
+  background-color: #F6E0B5;
+  color: var(--color-text-on-warning);
+  font-size: var(--font-size-badge);
+  font-weight: var(--font-weight-bold);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-on-warning);
+}
+
+@media (max-width: 640px) {
+  .noticeBar {
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 12px;
+  }
+}
